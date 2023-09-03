@@ -1,0 +1,293 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    position: relative;
+}
+
+/* Designing the element creation area.*/
+#elementImage {
+    display: flex;
+    background-image: url(./images/background.png);
+    float: left;
+    width: 400px;
+    height: 100vh;
+    padding: 30px 20px;
+    color: cornsilk;
+    justify-content: end;
+    position: relative;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: .3125rem;
+    justify-content: start;
+    align-items: end;
+    padding: 20px 20px;
+    line-height: 2;
+
+
+
+}
+
+select {
+    width: 155px;
+}
+
+option value {
+    text-align: center;
+
+}
+
+
+.form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 50px;
+    text-align: left;
+}
+
+#colorFont,
+#colorBackground {
+    width: 180px;
+    padding: 2px 1px;
+    border: 1px solid rgb(155, 28, 28);
+}
+
+#buttons-container {
+
+    display: flex;
+    flex-direction: row;
+
+}
+
+#scan {
+    grid-area: item1;
+}
+
+#BtnAdd {
+    grid-area: item2;
+}
+
+#Btnremove {
+    grid-area: item3;
+
+}
+
+#BtnSave {
+    grid-area: item4;
+
+
+}
+
+#hidden {
+    grid-area: item5;
+}
+
+
+#colorAndAdd {
+    display: grid;
+    flex-wrap: wrap;
+    padding: 5px;
+    grid-template-areas:
+
+        "item1"
+        "item2"
+        'item3'
+        "item4";
+    gap: .625rem;
+
+}
+
+
+h2 {
+    display: block;
+    text-align: center;
+}
+
+
+#hidden,
+#scan,
+#BtnAdd,
+#Btnremove,
+#BtnSave {
+    background-color: rgba(109, 58, 75, 0.747);
+    padding: 5px 5px;
+    border: 0;
+    font-size: 20px;
+    color: rgb(93, 170, 236);
+    height: max-content;
+}
+
+#scan:active,
+#BtnAdd:active,
+#Btnremove:active,
+#BtnSave:active {
+    transform: scale(0.8);
+}
+
+BtnSave:focus {
+    background-color: yellow;
+}
+
+
+
+/*Designing the elements area.*/
+#PageBuilder {
+    display: flex;
+    flex-direction: column;
+
+    position: fixed;
+    top: 50%;
+    left: 42%;
+    width: 60%;
+    height: 90vh;
+    transform: translate(-9%, -47%);
+    gap: 100px;
+    flex-wrap: wrap;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 10px 20px;
+    padding: 20px;
+
+
+
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 162px;
+}
+
+/* Pull-down menu*/
+
+#dropDownContainer {
+    width: 300px;
+    height: 100vh;
+    padding: 20px;
+    position: absolute;
+    left: 400px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 120px;
+    gap: 1.3125rem;
+    background-color: antiquewhite;
+    transition: transform 5s ease-in-out;
+
+
+}
+
+.closeWindows {
+    transform: translateX(-400px);
+    z-index: -1;
+}
+
+#openWindowsButton {
+    position: fixed;
+    top: 50%;
+    left: 28%;
+    transform: translate(-50%, 50%);
+    padding: 15px .625rem;
+    background-color: burlywood;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 10px 20px;
+
+    width: 280px;
+}
+
+#closeHelpBtn {
+    position: fixed;
+    top: 92%;
+    left: 24%;
+    transform: translate(-20%, 95%);
+    padding: 5px .625rem;
+    background-color: burlywood;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 10px 20px;
+    width: 280px;
+}
+
+
+.header {
+    width: 200px;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    opacity: 0.8;
+    text-align: left;
+    align-items: center;
+    gap: .3125rem;
+
+}
+
+.navbar a {
+    color: rgb(3, 3, 3);
+    padding: 0.1rem;
+    font-size: 17px;
+    text-decoration: none;
+    display: none;
+    font-size: large;
+    margin: 0;
+
+}
+
+#hamburger {
+    display: block !important;
+
+}
+
+.imageBar {
+    height: 50px;
+    width: 50px;
+}
+
+#titleElement {
+
+    text-align: center;
+    margin: 1.25rem;
+}
+
+.box {
+    animation: flash 1s infinite;
+}
+
+@keyframes flash {
+    0% {
+        opacity: 1
+    }
+
+    50% {
+        color: rgb(243, 14, 14);
+
+    }
+
+    70% {
+        color: rgb(228, 32, 32);
+        opacity: 0.4;
+
+    }
+
+    100% {
+        color: rgb(165, 165, 189);
+        opacity: 1;
+    }
+}
+
+.scannerUpdate {
+    padding: 30px;
+    font-size: 25px;
+    text-align: center;
+    color: red;
+
+}

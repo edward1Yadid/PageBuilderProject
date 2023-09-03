@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="#">
+    <title>PageBuilderProject</title>
+</head>
+
+<body>
+
+
+
+    <div id="containerProject">
+        <button id="openWindowsButton">Toggle button for opening</button>
+        <div id="elementImage">
+            <div class="form">
+                <label for="typeOfelemnt">The type of element</label>
+
+                <select id="typeOfelemnt">
+                    <option value=""></option>
+                    <option value="H1" selected>H1</option>
+                    <option value="h2">h2</option>
+                    <option value="h3">h3</option>
+                    <option value="p">p</option>
+                    <option value="span">span</option>
+
+                </select>
+
+
+                <label for="widthOfelemnt">The width of the element</label>
+                <input type="text" id="widthOfelemnt" name="widthOfelemnt"
+                    title="if you write only numbers is 'px' but if you write letters is automaticly max-content">
+
+
+
+                <label for="heightOfelemnt">The height of the element</label>
+                <input type="text" id="heightOfelemnt" name="heightOfelemnt"
+                    title="if you write only numbers is 'px' but if you write letters is automaticly 100vh">
+
+
+                <label for="textOnTheElement">The content of the element</label>
+                <textarea name="textOnTheElement" id="textOnTheElement" cols="40" rows="2"></textarea>
+
+                <label for="typeOfTheFont">type Of The Font</label>
+                <input type="text" id="typeOfTheFont" name="typeOfTheFont">
+
+                <label for="fontSize">font Size</label>
+                <input type="text" id="fontSize" name="fontSize">
+
+                <label for="borderRadius">border Radius</label>
+                <input type=" text" id="borderRadius" name="borderRadius">
+
+                <label for="colorFont">Please choose a font color.</label>
+                <input id="colorFont" name="colorFont" type="color" value="#64ffff">
+                <label for="colorBackground">Please choose a background color.</label>
+                <input id="colorBackground" name="colorBackground" type="color" value="#64ffff">
+
+
+
+
+
+
+                <div id="colorAndAdd">
+                    <button id="BtnAdd">Add</button>
+                    <button id="Btnremove">remove</button>
+                    <button id="BtnSave">retore</button>
+                    <button id="scan">scan</button>
+                    <button id="hidden" hidden></button>
+                </div>
+
+            </div>
+
+
+
+        </div>
+        <div id="dropDownContainer" class="closeWindows"></div>
+        <div id="PageBuilder"></div>
+
+    </div>
+
+
+
+
+
+
+
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
