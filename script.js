@@ -23,8 +23,7 @@ function addElement() {
   const typeOfelemnt = document.getElementById("typeOfelemnt").value;
 
   let newElement = document.createElement(`${typeOfelemnt}`);
-  PageBuilder.innerHTML = "";
-  sessionStorage.clear();
+
   newElement.classList.add(`${typeOfelemnt}-${count}`);
 
   //width
@@ -90,7 +89,9 @@ function addElement() {
   }
 
   /////////////////////////////////////////////////////adding color//////////////////////////////////////////////////////////////////////
-
+  if (count == 1) {
+    sessionStorage.clear();
+  }
   //Background colors for everything.
 
   newElement.style.color = colorFont.value;
