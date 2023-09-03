@@ -13,19 +13,18 @@ const Btnremove = document.getElementById("Btnremove");
 const PageBuilder = document.getElementById("PageBuilder");
 
 /////////////////////////////////////////////////////"Element creation"//////////////////////////////////////////////////
-let count = 1;
+let count = 0;
 
 //regex for check the inputs value
 const regexLetter = /^[A-Za-z-]+$/;
 
 BtnAdd.addEventListener("click", addElement);
 function addElement() {
-  PageBuilder.innerHTML = "";
-  sessionStorage.clear();
   const typeOfelemnt = document.getElementById("typeOfelemnt").value;
 
   let newElement = document.createElement(`${typeOfelemnt}`);
-
+  PageBuilder.innerHTML = "";
+  sessionStorage.clear();
   newElement.classList.add(`${typeOfelemnt}-${count}`);
 
   //width
@@ -221,13 +220,11 @@ const BtnRestore = document.getElementById("BtnSave");
 BtnRestore.addEventListener("click", restorefromsessionUser);
 const typeOfelemnt = document.getElementById("typeOfelemnt").value;
 
-const innherPagebuilder = sessionStorage.getItem(
-  `${typeOfelemnt}-${count - 1}`
-);
-const element = innherPagebuilder;
 function restorefromsessionUser() {
   PageBuilder.innerHTML = "";
-  PageBuilder.innerHTML = element;
+  PageBuilder.innerHTML = sessionStorage.getItem(
+    `${typeOfelemnt}-${count - 1}`
+  );
 }
 //////////////////////////////////////////////////////////////////////////remove the data/////////////////////////////////////////////////////
 Btnremove.addEventListener("click", removeElemnets);
