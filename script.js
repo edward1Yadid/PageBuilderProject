@@ -226,6 +226,7 @@ const innherPagebuilder = sessionStorage.getItem(
 );
 const element = innherPagebuilder;
 function restorefromsessionUser() {
+  PageBuilder.innerHTML = "";
   PageBuilder.innerHTML = element;
 }
 //////////////////////////////////////////////////////////////////////////remove the data/////////////////////////////////////////////////////
