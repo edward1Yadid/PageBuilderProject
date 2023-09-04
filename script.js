@@ -21,7 +21,6 @@ const regexLetter = /^[A-Za-z-]+$/;
 BtnAdd.addEventListener("click", addElement);
 function addElement() {
   const typeOfelemnt = document.getElementById("typeOfelemnt").value;
-
   let newElement = document.createElement(`${typeOfelemnt}`);
 
   newElement.classList.add(`${typeOfelemnt}-${count}`);
@@ -90,7 +89,7 @@ function addElement() {
 
   /////////////////////////////////////////////////////adding color//////////////////////////////////////////////////////////////////////
   if (count == 1) {
-    sessionStorage.clear();
+    localStorage.clear();
   }
   //Background colors for everything.
 
@@ -100,7 +99,7 @@ function addElement() {
   //////Completion of element creation
   PageBuilder.appendChild(newElement);
 
-  sessionStorage.setItem(`${typeOfelemnt}-${count}`, newElement.outerHTML);
+  localStorage.setItem(`${typeOfelemnt}-${count}`, newElement.outerHTML);
   count++;
 }
 
@@ -223,9 +222,7 @@ const typeOfelemnt = document.getElementById("typeOfelemnt").value;
 
 function restorefromsessionUser() {
   PageBuilder.innerHTML = "";
-  PageBuilder.innerHTML = sessionStorage.getItem(
-    `${typeOfelemnt}-${count - 1}`
-  );
+  PageBuilder.innerHTML = localStorage.getItem(`${typeOfelemnt}-${count - 1}`);
 }
 //////////////////////////////////////////////////////////////////////////remove the data/////////////////////////////////////////////////////
 Btnremove.addEventListener("click", removeElemnets);
@@ -239,7 +236,7 @@ function removeElemnets() {
       element.value = "";
     });
   });
-  sessionStorage.clear();
+  localStorage.clear();
   count = 1;
   textOnTheElement.value = "";
 }
