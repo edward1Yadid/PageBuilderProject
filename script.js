@@ -24,7 +24,9 @@ function addElement() {
   let newElement = document.createElement(`${typeOfelemnt}`);
 
   newElement.classList.add(`${typeOfelemnt}-${count}`);
+  newElement.style.padding = "30px";
 
+  newElement.style.textAlign = "center";
   //width
   if (regexLetter.test(widthOfelemnt.value)) {
     newElement.style.width = "max-content";
