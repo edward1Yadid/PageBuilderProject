@@ -1,257 +1,123 @@
-/////////////////////////////////////////////////////The area for defining HTML objects.///////////////////////////////////////////////////
-
+/////////////////////////////////////////////////////The area for defining HTML objects./////////////////////////
 const widthOfelemnt = document.getElementById("widthOfelemnt");
 const heightOfelemnt = document.getElementById("heightOfelemnt");
 const textOnTheElement = document.getElementById("textOnTheElement");
+const typeOfTheFont = document.getElementById("typeOfTheFont");
+const borderRadius = document.getElementById("borderRadius");
 const colorFont = document.getElementById("colorFont");
 const colorBackground = document.getElementById("colorBackground");
 const fontSize = document.getElementById("fontSize");
-const typeOfTheFont = document.getElementById("typeOfTheFont");
-const borderRadius = document.getElementById("borderRadius");
+const fontSelector = document.getElementById("fontSelector");
+const PageBuilder = document.querySelector("#PageBuilderContainer");
 const BtnAdd = document.getElementById("BtnAdd");
+const loadBtn = document.getElementById("Btnrestore");
+const inputsElements = document.getElementById("inputsElements");
+const typeOfelemnt = document.getElementById("typeOfelemnt");
 const Btnremove = document.getElementById("Btnremove");
-const PageBuilder = document.getElementById("PageBuilder");
 
-/////////////////////////////////////////////////////"Element creation"//////////////////////////////////////////////////
-let count = 0;
+//selection of properties
+const Selectwidth = document.querySelector(".width");
+const Selectheight = document.querySelector(".height");
+const selectfontSize = document.querySelector(".fontsizeSelect");
+const SelectborderRadius = document.querySelector(".borderRadius");
+let count = 1;
 
-//regex for check the inputs value
-const regexLetter = /^[A-Za-z-]+$/;
+/////////////////////////////////////////////////////add data to screen.////////////////////////////////
 
-BtnAdd.addEventListener("click", addElement);
-function addElement() {
-  const typeOfelemnt = document.getElementById("typeOfelemnt").value;
-  let newElement = document.createElement(`${typeOfelemnt}`);
+BtnAdd.addEventListener("click", (event) => {
+  let newElement = document.createElement(`${typeOfelemnt.value}`);
 
-  newElement.classList.add(`${typeOfelemnt}-${count}`);
-  newElement.style.padding = "30px";
-
-  newElement.style.textAlign = "center";
+  newElement.classList.add(`${typeOfelemnt.value}-${count}`);
   //width
-  if (regexLetter.test(widthOfelemnt.value)) {
-    newElement.style.width = "max-content";
-  } else if (widthOfelemnt.value.includes("px")) {
-    newElement.style.width = widthOfelemnt.value.slice(0, 2) + "px";
-  } else if (widthOfelemnt.value.includes("vw")) {
+  if (Selectwidth.value == "%") {
     newElement.style.width =
-      String(Math.min(Number(widthOfelemnt.value.slice(0, 2)), Number("20"))) +
-      "vw";
+      String(Math.min(Number(widthOfelemnt.value), Number("50"))) +
+      Selectwidth.value;
+  } else if (Selectwidth.value == "px") {
+    newElement.style.width =
+      String(Math.min(Number(widthOfelemnt.value), Number("200"))) +
+      Selectwidth.value;
+  } else if (Selectwidth.value == "em") {
+    newElement.style.width =
+      String(Math.min(Number(widthOfelemnt.value), Number("200"))) +
+      Selectwidth.value;
+  } else if (Selectwidth.value == "rem") {
+    newElement.style.width =
+      String(Math.min(Number(widthOfelemnt.value), Number("200"))) +
+      Selectwidth.value;
   }
 
   //height
-  if (regexLetter.test(heightOfelemnt.value)) {
-    newElement.style.height = "max-content";
-  } else if (heightOfelemnt.value.includes("px")) {
-    newElement.style.height = heightOfelemnt.value.slice(0, 2) + "px";
-  } else if (heightOfelemnt.value.includes("vh")) {
+  if (Selectheight.value == "%") {
     newElement.style.height =
-      String(Math.min(Number(heightOfelemnt.value.slice(0, 2)), Number("20"))) +
-      "vh";
+      String(Math.min(Number(heightOfelemnt.value), Number("50"))) +
+      Selectheight.value;
+  } else if (Selectheight.value == "px") {
+    newElement.style.height =
+      String(Math.min(Number(heightOfelemnt.value), Number("200"))) +
+      Selectheight.value;
+  } else if (Selectheight.value == "em") {
+    newElement.style.height =
+      String(Math.min(Number(heightOfelemnt.value), Number("200"))) +
+      Selectheight.value;
+  } else if (Selectheight.value == "rem") {
+    newElement.style.height =
+      String(Math.min(Number(heightOfelemnt.value), Number("200"))) +
+      Selectheight.value;
   }
 
-  ///contect on the element
-  newElement.innerText = `${textOnTheElement.value}-${typeOfelemnt}-${count}`;
+  ///fonst-size
 
-  ///type of fonts
-  const fontFamilies = [
-    "Arial",
-    "Helvetica",
-    "Times New Roman",
-    "Georgia",
-    "Courier New",
-    "Verdana",
-    "Impact",
-    "Comic Sans MS",
-  ];
-
-  if (fontFamilies.includes(typeOfTheFont.value)) {
-    newElement.style.fontFamily = typeOfTheFont.value;
-  } else {
-    // alert("I don't have this font - please choose a different one.");
-  }
-  //font-Size
-  if (regexLetter.test(fontSize.value)) {
-    newElement.style.fontSize = fontSize.value;
-  } else if (fontSize.value.includes("px")) {
-    newElement.style.fontSize = fontSize.value.slice(0, 2) + "px";
-  } else if (fontSize.value.includes("%")) {
-    newElement.style.fontSize = fontSize.value.slice(0, 2) + "%";
-  } else if (fontSize.value.includes("em")) {
+  if (selectfontSize.value == "px") {
     newElement.style.fontSize =
-      String(Math.min(Number(fontSize.value.slice(0, 2)), Number("10"))) + "em";
+      String(Math.min(Number(fontSize.value), Number("200"))) +
+      selectfontSize.value;
+  } else if (selectfontSize.value == "pt") {
+    newElement.style.fontSize =
+      String(Math.min(Number(fontSize.value), Number("200"))) +
+      selectfontSize.value;
+  } else if (selectfontSize.value == "em") {
+    newElement.style.fontSize =
+      String(Math.min(Number(fontSize.value), Number("50"))) +
+      selectfontSize.value;
+  } else if (selectfontSize.value == "rem") {
+    newElement.style.fontSize =
+      String(Math.min(Number(fontSize.value), Number("50"))) +
+      selectfontSize.value;
   }
 
-  //border Radius
-
-  if (borderRadius.value.includes("px")) {
-    newElement.style.borderRadius = borderRadius.value.slice(0, 2) + "px";
-  } else if (borderRadius.value.includes("%")) {
-    newElement.style.borderRadius = borderRadius.value.slice(0, 2) + "%";
+  if (SelectborderRadius.value == "%") {
+    newElement.style.borderRadius =
+      String(Math.min(Number(borderRadius.value), Number("50"))) +
+      SelectborderRadius.value;
+  } else if (SelectborderRadius.value == "px") {
+    newElement.style.borderRadius =
+      String(Math.min(Number(borderRadius.value), Number("200"))) +
+      SelectborderRadius.value;
   }
-
-  /////////////////////////////////////////////////////adding color//////////////////////////////////////////////////////////////////////
-  if (count == 1) {
-    localStorage.clear();
-  }
-  //Background colors for everything.
-
+  newElement.style.fontFamily = fontSelector.value;
+  newElement.innerText = textOnTheElement.value;
   newElement.style.color = colorFont.value;
   newElement.style.backgroundColor = colorBackground.value;
 
-  //////Completion of element creation
+  console.log(newElement);
+  event.preventDefault();
   PageBuilder.appendChild(newElement);
-
-  localStorage.setItem(`${typeOfelemnt}-${count}`, newElement.outerHTML);
   count++;
-}
-
-addElement();
-
-//////////////////////////////////////////////////////////////////Programming the help area./////////////////////////////////////////////
-const dropDownArray = [
-  {
-    //width
-    header: "The types of width's you can order at Element",
-    example1: "20px= '20px-max-99'",
-    example2: "any letter='max-content'",
-    example3: "20vw='20vw-max-99'",
-  },
-  {
-    //height
-    header: "The types of height's you can order at Element",
-    example1: "20px= '20px-max-99'",
-    example2: "any letter='max-content'",
-    example3: "20vh='20vh-max-99'",
-  },
-  {
-    //textExtra
-    header: "Examples of content you can post on Element",
-    example1: "you can write a poem song",
-    example2: "you can write to-do list",
-    example3: "you can just spread your thoughts",
-  },
-  // font types
-  {
-    header: "The available font types",
-    example1: "Arial",
-    example2: "Helvetica",
-    example3: "Times New Roman",
-  },
-  {
-    // font zise
-    header: "font-size property",
-    example1: "larger",
-    example2: "smaller",
-    example3: "medium",
-  },
-];
-const dropDownContainer = document.getElementById("dropDownContainer");
-function showDropDown() {
-  let elementExamples = "";
-  dropDownArray.forEach((element) => {
-    elementExamples += `
-
-            <div class="navbar">
-            <div><h3 class="header">${element.header}</h3></div>
-            <div>
-           <a href="#" id="hamburger"><img class="imageBar" src="./images/bar.PNG" alt="images"></a>
-           
-                <a class="show" href="#">${element.example1}</a>
-                <a class="show" href="#">${element.example2}</a>
-                <a class="show" href="#">${element.example3}</a>
-          
-            </div>
-
-            </div>
-`;
-  });
-
-  dropDownContainer.innerHTML = elementExamples;
-  dropDownContainer.innerHTML += `   <button id="closeHelpBtn">close Windows</button>`;
-}
-showDropDown();
-
-const openHelpBtn = document.getElementById("openWindowsButton");
-openHelpBtn.addEventListener("click", openWindows);
-function openWindows() {
-  dropDownContainer.classList.remove("closeWindows");
-}
-
-const closeHelpBtn = document.getElementById("closeHelpBtn");
-closeHelpBtn.addEventListener("click", closeWindows);
-
-function closeWindows() {
-  dropDownContainer.classList.add("closeWindows");
-}
-
-////////////////////////////////////////////////////////Launching help windows//////////////////////////////////////////////////////////////////
-const hamburger = document.querySelectorAll("#hamburger");
-hamburger.forEach((element) => {
-  element.addEventListener("mouseover", openDropDown);
 });
 
-const show = document.querySelectorAll(".show");
-function openDropDown() {
-  show.forEach((elemet) => {
-    elemet.style.display = "block";
-  });
-
-  document.querySelectorAll(".header").forEach((element) => {
-    element.style.display = "none";
-  });
-}
-hamburger.forEach((element) => {
-  element.addEventListener("mouseleave", closeDropDown);
-});
-
-function closeDropDown() {
-  const show = document.querySelectorAll(".show");
-
-  show.forEach((elemet) => {
-    elemet.style.display = "none";
-    closeHelpBtn.style.display = "block";
-  });
-  document.querySelectorAll(".header").forEach((element) => {
-    element.style.display = "block";
-  });
-}
-const BtnRestore = document.getElementById("BtnSave");
-
-//////////////////////////////////////////////////////////////////////////restore the data/////////////////////////////////////////////////////
-
-BtnRestore.addEventListener("click", restorefromsessionUser);
-const typeOfelemnt = document.getElementById("typeOfelemnt").value;
-
-function restorefromsessionUser() {
-  PageBuilder.innerHTML = "";
-  PageBuilder.innerHTML = localStorage.getItem(`${typeOfelemnt}-${count - 1}`);
-}
-//////////////////////////////////////////////////////////////////////////remove the data/////////////////////////////////////////////////////
-Btnremove.addEventListener("click", removeElemnets);
-
-function removeElemnets() {
-  PageBuilder.childNodes.forEach((element) => {
-    element.remove();
-
-    PageBuilder.style.backgroundColor = "transparent";
-    document.querySelectorAll("input").forEach((element) => {
-      element.value = "";
-    });
-  });
-  localStorage.clear();
-  count = 1;
-  textOnTheElement.value = "";
-}
-
-//////////////////////////////////////////////////////////////scanner animation //////////////////////////////////////////////////////////////
+const regexLetter = /^[A-Za-z-]+$/;
+///////////////////////////////////////Update data to localStorage  /////////////////////////////////////////////////////////
 
 const div = document.createElement("div");
-div.classList.add("box");
-div.style.display = "inline-block";
+div.id = "update";
+
 div.style.backgroundColor = "rgb(85, 85, 175)";
-div.style.width = "60%";
+div.style.width = "79%";
 div.style.height = "3px";
 div.style.marginRight = "68px";
+div.style.top = "10px";
+div.style.left = "1px";
 
 document.querySelectorAll("input").forEach((input) => {
   if (input.value == "") {
@@ -259,32 +125,50 @@ document.querySelectorAll("input").forEach((input) => {
     PageBuilder.innerHTML = "";
   }
 });
-
-document.getElementById("scan").addEventListener("click", () => {
-  const p = document.createElement("p");
-  p.classList.add("scannerUpdate");
-
+const scannerUpdate = document.querySelector(".scannerUpdate");
+document.getElementById("BtnAddlocal").addEventListener("click", () => {
   let counter = 0;
   const animationScanner = setInterval(() => {
-    p.innerText =
-      "....We are scanning your drawing and uploading it to sessionStorage. This process may take a few seconds";
-
-    document.body.appendChild(p);
-
+    scannerUpdate.innerHTML =
+      "....We are scanning your drawing and uploading it to localStorage. This process may take a few seconds";
+    div.style.display = "block";
     document.body.appendChild(div);
     counter += 10;
     div.style.marginTop = counter + "px";
     if (div.style.marginTop == "930px") {
-      p.innerText = "The scanning and uploading process has finished";
+      scannerUpdate.innerHTML =
+        "The scanning and uploading process has finished";
       clearInterval(animationScanner);
       document.body.removeChild(div);
-      openHelpBtn.style.display = "block";
 
       setTimeout(() => {
-        document.body.removeChild(p);
         PageBuilder.innerHTML = "";
+        scannerUpdate.innerHTML = "welcome to PageBuilderProject ";
       }, 4000);
     }
   }, 100);
+
+  //////////////////////////////////////////////////////////restore the data/////////////////////////////////////////////////////
+
+  localStorage.setItem("elements", PageBuilder.outerHTML);
+
+  loadBtn.addEventListener("click", () => {
+    if (localStorage.getItem("elements") !== "") {
+      const items = localStorage.getItem("elements");
+      PageBuilder.outerHTML = items;
+    } else {
+      alert("storage is empty");
+    }
+  });
 });
-const p = document.createElement("p");
+///////////////////////////////////////////////////////remove the data/////////////////////////////////////////////////////
+Btnremove.addEventListener("click", () => {
+  PageBuilder.innerHTML = "";
+  localStorage.clear();
+  count = 1;
+  textOnTheElement.value = "";
+
+  document.querySelectorAll("input").forEach((element) => {
+    element.value = "";
+  });
+});

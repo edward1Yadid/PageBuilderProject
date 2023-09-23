@@ -12,13 +12,14 @@
 <body>
 
 
+    <p class="scannerUpdate">welcome to PageBuilderProject </p>
 
     <div id="containerProject">
-        <button id="openWindowsButton">Toggle button for opening</button>
-        <div id="elementImage">
-            <div class="form">
-                <label for="typeOfelemnt">The type of element</label>
 
+
+        <div id="elementImage">
+            <div id="inputsElements">
+                <label for="typeOfelemnt">The type of element</label>
                 <select id="typeOfelemnt">
                     <option value=""></option>
                     <option value="H1" selected>H1</option>
@@ -26,58 +27,83 @@
                     <option value="h3">h3</option>
                     <option value="p">p</option>
                     <option value="span">span</option>
-
                 </select>
-
-
                 <label for="widthOfelemnt">The width of the element</label>
-                <input type="text" id="widthOfelemnt" name="widthOfelemnt"
-                    title="if you write only numbers is 'px' but if you write letters is automaticly max-content">
-
+                <div class="selections">
+                    <input type="number" id="widthOfelemnt" name="widthOfelemnt">
+                    <select class="Selection width">
+                        <option value="%">%</option>
+                        <option value="px">px</option>
+                        <option value="em">em</option>
+                        <option value="rem">rem</option>
+                    </select>
+                </div>
 
 
                 <label for="heightOfelemnt">The height of the element</label>
-                <input type="text" id="heightOfelemnt" name="heightOfelemnt"
-                    title="if you write only numbers is 'px' but if you write letters is automaticly 100vh">
-
-
+                <div class="selections ">
+                    <input type="number" id="heightOfelemnt" name="heightOfelemnt">
+                    <select class="Selection height">
+                        <option value="%">%</option>
+                        <option value="px">px</option>
+                        <option value="em">em</option>
+                        <option value="rem">rem</option>
+                    </select>
+                </div>
                 <label for="textOnTheElement">The content of the element</label>
                 <textarea name="textOnTheElement" id="textOnTheElement" cols="40" rows="2"></textarea>
 
                 <label for="typeOfTheFont">type Of The Font</label>
-                <input type="text" id="typeOfTheFont" name="typeOfTheFont">
+                <select id="fontSelector">
+                    <option value="Arial">Arial</option>
+                    <option value="Helvetica">Helvetica</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Impact">Impact</option>
+                    <option value="Comic Sans MS">Comic Sans MS</option>
+                </select>
+
 
                 <label for="fontSize">font Size</label>
-                <input type="text" id="fontSize" name="fontSize">
+                <div class="selections ">
+                    <input type="text" id="fontSize" name="fontSize">
+                    <select class="Selection fontsizeSelect">
+                        <option value="pt">pt</option>
+                        <option value="px">px</option>
+                        <option value="rem">em</option>
+                        <option value="pt">em</option>
+                    </select>
+                </div>
 
                 <label for="borderRadius">border Radius</label>
-                <input type=" text" id="borderRadius" name="borderRadius">
+                <div class="selections ">
+                    <input type=" text" id="borderRadius" name="borderRadius">
+                    <select class="Selection borderRadius">
+                        <option value="%">%</option>
+                        <option value="px">px</option>
+
+                    </select>
+                </div>
 
                 <label for="colorFont">Please choose a font color.</label>
                 <input id="colorFont" name="colorFont" type="color" value="#64ffff">
                 <label for="colorBackground">Please choose a background color.</label>
                 <input id="colorBackground" name="colorBackground" type="color" value="#64ffff">
-
-
-
-
-
-
                 <div id="colorAndAdd">
-                    <button id="BtnAdd">Add</button>
+                    <button id="BtnAdd">Add to Screen</button>
+                    <button id="BtnAddlocal">Add to localStorage</button>
                     <button id="Btnremove">remove</button>
-                    <button id="BtnSave">restore</button>
-                    <button id="scan">scan</button>
-                    <button id="hidden" hidden></button>
-                </div>
+                    <button id="Btnrestore">restore</button>
 
+
+                </div>
             </div>
 
-
-
         </div>
-        <div id="dropDownContainer" class="closeWindows"></div>
-        <div id="PageBuilder"></div>
+
+        <div id="PageBuilderContainer"></div>
 
     </div>
 
