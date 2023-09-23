@@ -59,3 +59,8 @@ clearLocalStorage: Clears the locally saved page.
 
 
 
+ ## Responsiveness
+
+This web application is optimized for desktop screens and is designed to provide an exceptional user experience on desktop devices. It may not be fully optimized for smaller screen sizes such as mobile and tablet.
+
+For the best experience, we recommend using this application on desktop screens.
